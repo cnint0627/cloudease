@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/launch/launch",
+    "pages/index/index",
+    "pages/community/community",
+    "pages/calendar/calendar",
+    "pages/more/more",
+    "pages/uploadPost/uploadPost",
+    "pages/post/post"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "心理自助平台",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "lightgrey",
+    "selectedColor": "green",
+    "backgroundColor": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "text": "树洞"
+      },
+      {
+        "pagePath": "pages/uploadPost/uploadPost",
+        "text": "+"
+      },
+      {
+        "pagePath": "pages/calendar/calendar",
+        "text": "日历"
+      },
+      {
+        "pagePath": "pages/more/more",
+        "text": "其他"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,9 @@
+<!--pages/index/index.wxml-->
+<view>
+<view>
+首页 初始化{{isInit?"成功":"失败(重新启动小程序)"}}
+</view>
+年：{{year}}
+月：{{month}}
+日：{{day}}
+</view>

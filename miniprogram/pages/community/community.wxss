@@ -1,0 +1,36 @@
+/* pages/community/community.wxss */
+.head{
+  background-color: lightgreen;
+  margin:20rpx;
+  font-size: 60rpx;
+  font-weight: 700;
+  text-align: center;
+  color: green;
+  border-radius: 15rpx;
+}
+
+.post{
+  display: flex;
+  flex-direction: column;
+  margin-left:20rpx;
+  margin-right:20rpx;
+  margin-top:5rpx;
+  margin-bottom:5rpx;
+  line-height: 50rpx;
+  border-radius: 15rpx;
+  background-color: lightskyblue;
+  font-size: 35rpx;
+  font-weight: 350;
+  color:darkblue;
+}
+
+.sort{
+  position: absolute;
+  right:50rpx;
+}
+
+.date{
+  position: relative;
+  left:500rpx;
+  color:lightyellow;
+}

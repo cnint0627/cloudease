@@ -1,0 +1,23 @@
+<!--pages/uploadPost.wxml-->
+<view>
+  <form catchsubmit="formSubmit" catchreset="formReset">
+    <picker name="sort" bindchange="bindPickerChange" value="{{sortIndex}}" range="{{sortArray}}">
+    <view class="sortPicker">
+      帖子分类：{{sortArray[sortIndex]}}
+    </view>
+  </picker>
+  <view class="titleInput">
+  标题：
+    <input name="title" maxlength="10" placeholder="请输入标题" value="{{valueTitle}}"/>
+  </view>
+  <view class="contentText">
+  内容：
+  <textarea name="content" placeholder="请输入内容" value="{{valueContent}}"/>
+  </view>
+  <view>
+  <button type="primary" form-type="submit" disabled="{{isUpload}}">
+    发布
+  </button>
+  </view>
+  </form>
+</view>

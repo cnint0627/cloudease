@@ -1,0 +1,12 @@
+<!--pages/community/community.wxml-->
+<view class="head">
+心灵树洞
+</view>
+<view wx:for="{{post}}">
+<navigator class="post" wx:if="{{item!=null}}" url="/pages/post/post?index={{index}}">
+<text>{{item.title}}</text>
+<text class="sort">分类：{{sortArray[item.sort]}}</text>
+<view class="content">{{item.content}}</view>
+<view class="date">{{item.date.year}}-{{item.date.month}}-{{item.date.day}}</view>
+</navigator>
+</view>

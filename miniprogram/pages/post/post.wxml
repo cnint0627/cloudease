@@ -1,0 +1,34 @@
+<!--pages/post/post.wxml-->
+<view>
+<view>
+标题：{{post.title}}
+</view>
+<view>
+内容：{{post.content}}
+</view>
+<view>
+<button class="deletebtn" wx:if="{{isPostOwner}}" size="mini" bindtap="bindDeletePost" disabled="{{isDelete}}">
+删除帖子
+</button>
+</view>
+<form catchsubmit="bindCommentPost">
+  <view class="contentText">
+  评论：
+  <textarea name="content" placeholder="请输入内容" value="{{valueContent}}"/>
+  </view>
+<button size="mini" type="primary" form-type="submit" disabled="{{isComment}}">
+发表评论
+</button>
+</form>
+
+<view wx:for="{{post.comment}}">
+<view wx:if="{{item!=null}}">
+评论：{{item.content}}
+</view>
+<view wx:if="{{isCommentOwner[index]}}">
+<button class="deletebtn" size="mini" bindtap="bindDeleteComment" data-index="{{index}}">
+删除  
+</button>
+</view>
+</view>
+</view>

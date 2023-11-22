@@ -1,0 +1,5 @@
+/* pages/post/post.wxss */
+.deletebtn{
+  background-color: red;
+  color: white;
+}
