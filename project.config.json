@@ -34,7 +34,8 @@
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "condition": true
   },
   "appid": "wx1b6f8c5a8fbdf642",
   "projectname": "quickstart-wx-cloud",
@@ -72,5 +73,9 @@
   "editorSetting": {
     "tabIndent": "auto",
     "tabSize": 2
+  },
+  "projectArchitecture": "multiPlatform",
+  "simulatorPluginLibVersion": {
+    "wxext14566970e7e9f62": "2.27.3"
   }
 }

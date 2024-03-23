@@ -1,1 +1,225 @@
 /* pages/calendar/calendar.wxss */
+.page {
+  overflow: scroll;
+  margin-bottom: calc(120rpx +  env(safe-area-inset-bottom));
+  background: linear-gradient(to bottom,#E4EAFF, #F9F9F9);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: Arial, Helvetica, sans-serif;
+}
+::-webkit-scrollbar {
+  display:none;
+  width:0;
+  height:0;
+  color:transparent;
+}
+
+.ques{
+  color: gray;
+  font-size: 26rpx;
+  width: 30rpx;
+  height: 30rpx;
+  margin-left:20rpx;
+  margin-top: 6rpx;
+  text-align: center;
+  line-height: 32rpx;
+  border-style: solid;
+  border-radius: 50%;
+  border-width:2rpx;
+}
+
+.head{
+  color:rgba(98, 105, 164, 0.71);
+  font-size: 50rpx;
+  font-weight: 500;
+  margin-left:50rpx;
+}
+
+.change-time{
+  display: flex;
+  flex-direction: row;
+  margin-left: 50rpx;
+  margin-top:50rpx;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size:32rpx;
+}
+
+.change-time-btn{
+  padding: 0 0;
+  border-radius: 10rpx;
+  background-color: white;
+  color: gray;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  width:10rpx;
+  height:50rpx;
+}
+
+.circle {
+  margin-top:100rpx;
+  margin-left:100rpx;
+  width: 520rpx;
+  height: 520rpx;
+  border-radius: 50%;
+  background-color: rgba(218,222,236,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.circle .point{
+  width:20rpx;
+  height:20rpx;
+  border-radius: 50%;
+  background-color: #8991D1;
+  position: absolute;
+}
+
+/*文字围绕圆形布局*/
+.circle .circle-item {
+  text-align: center;
+  position: absolute;
+  left: 230rpx;
+  transform-origin: bottom center;
+  }
+  .circle-item:nth-child(2) {
+  transform: rotate(0deg) translateY(-250rpx) rotate(0deg);
+  }
+  .circle-item:nth-child(3) {
+  transform: rotate(51.4285deg) translateY(-250rpx) rotate(-51.4285deg);
+  }
+  .circle-item:nth-child(4) {
+  transform: rotate(102.8571deg) translateY(-250rpx) rotate(-102.8571deg);
+  }
+  .circle-item:nth-child(5) {
+  transform: rotate(154.2857deg) translateY(-250rpx) rotate(-154.2857deg);
+  }
+  .circle-item:nth-child(6) {
+  transform: rotate(205.7142deg) translateY(-250rpx) rotate(-205.7142deg);
+  }
+  .circle-item:nth-child(7) {
+  transform: rotate(257.1428deg) translateY(-250rpx) rotate(-257.1428deg);
+  }
+  .circle-item:nth-child(8) {
+  transform: rotate(308.5714deg) translateY(-250rpx) rotate(-308.5714deg);
+  }
+
+  .mask{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 9000;
+    opacity: 0;
+}
+.modalDlg{
+    width: 630rpx;
+    height: 480rpx;
+    position: fixed;
+    top: 55%;
+    left: 60rpx;
+    z-index: 9999;
+    margin: -370rpx 85rpx 0 0;
+    background-color: #fff;
+    border-radius: 20rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    
+}
+
+.detail{
+  text-align: center;
+  margin-top: -40rpx;
+  font-size: 26rpx;
+}
+.title{
+  width: 100%;
+  padding-top: 20rpx;
+  padding-left:100rpx;
+  text-align: left;
+  margin-top: 30rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.emoji-container{
+  width:630rpx;
+  padding: 10rpx;
+  margin-top:10rpx;
+  margin-bottom:10rpx;
+  height:1000rpx;
+  display: grid;
+  grid-template-columns: repeat(4,auto);
+  grid-auto-rows: 150rpx;
+  justify-content:center;
+  overflow-y: scroll;
+}
+
+.emoji-circle{
+  position: absolute;
+  top:60rpx;
+  left:-30rpx;
+  width:120rpx;
+  height:120rpx;
+}
+
+.emoji{
+  width:150rpx;
+  height:150rpx;
+}
+
+.report-container{
+  width: 520rpx;
+  height:520rpx;
+  background-color: white;
+  margin-left:115rpx;
+  margin-top: 50rpx;
+  border-radius: 30rpx;
+  z-index: 1;
+}
+.radar{
+  margin:20rpx;
+  margin-top:30rpx;
+  width: 480rpx;
+  height: 480rpx;
+}
+
+.content-1{
+  margin-top:10rpx;
+  font-size: 26rpx;
+  color:gray;
+}
+
+.content{
+  margin-top:20rpx;
+  display: grid;
+  grid-template-columns: repeat(2,auto);
+  justify-content:flex-start;
+  font-size: 26rpx;
+  color:gray;
+}
+
+.row{
+  display: flex;
+  height: 120rpx;
+  margin-top:10rpx;
+  width: 260rpx;
+  margin-right:40rpx;
+  margin-left: -15rpx;
+}
+
+.row-text{
+  color:steelblue;
+  font-size: 24rpx;
+  margin-left:-15rpx;line-height: 25rpx;margin-top:20rpx;
+}

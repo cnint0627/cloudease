@@ -1,0 +1,13 @@
+/* pages/select/select.wxss */
+.navigator{
+  margin-left:30rpx;
+  margin-right:30rpx;
+  margin-top:20rpx;
+  background-color:lightskyblue;
+  color: white;
+  font-size: 60rpx;
+  text-align: center;
+  line-height: 200rpx;
+  border-radius: 20rpx;
+}
+

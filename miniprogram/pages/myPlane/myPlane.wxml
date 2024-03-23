@@ -1,0 +1,55 @@
+<!--pages/community/community.wxml-->
+<view class="page">
+  <topBar></topBar>
+  <view style="height: {{navHeight}}px;"></view>
+
+  <view class="head">
+    <image class="arrow" src="/images/arrow-back.png" bindtap="bindBack" />我的记录
+  </view>
+  <form catchsubmit="throwComment">
+
+    <!--显示评论-->
+    <block>
+        <view class="content">
+
+          <textarea disabled="true" class="textarea" style="{{myPost?'':'color:#888BA8;'}}" value="{{myPost.content?((myPost.title?(myPost.title+'\\n'):'')+myPost.content):'捡纸飞机中......'}}"></textarea>
+          <view wx:if="{{myPost.date}}" class="date">{{myPost.date.year+(myPost.date.month<10?'-0':'-')+myPost.date.month+(myPost.date.day<10?'-0':'-')+myPost.date.day+(myPost.date.hour<10?' 0':' ')+myPost.date.hour+(myPost.date.minute<10?':0':':')+myPost.date.minute}}</view>
+          <image src="/images/cat-1.png" class="tiny" mode="aspectFill"></image>
+        </view>
+        <view wx:if="{{byPass[0]=='h'}}">
+        <view class="comment">
+          回复
+        </view>
+        <view class="comment-area-container">
+        <image mode="aspectFill" style="width: 90rpx;height:90rpx;border-radius: 50%;background-color: white;" src="{{userInfo.avatar?avatar:'/images/icon.jpg'}}"></image>
+        <view class="content-2">
+          <input value="{{valueContent}}" name="content" class="comment-area" bindinput="refreshValueContent" maxlength="300" placeholder="说点什么......" placeholder-style="color:rgba(98, 105, 164, 0.57)"></input>
+
+          <button class="btn-plane-2" style="width: 120rpx;" form-type="submit" disabled="{{isThrow||!isAvailable}}" loading="{{isThrow}}">
+            确定
+          </button>
+        </view>
+        </view>
+
+
+
+      <view class="comment-container" wx:if="{{myPost}}">
+        <view class="comment-nums">
+          共 {{myPost.comment.length}} 条评论
+        </view>
+        <view wx:for="{{myPost.comment}}" class="other-comment-container">
+        <image style="width:80rpx;height:80rpx;border-radius:50%;background-color:white;" mode="aspectFill" src="{{item.userInfo.avatar?item.userInfo.avatar:'/images/icon.jpg'}}"></image>
+        <view class="other-comment-content">
+          <view style="color:rgba(136, 139, 168, 0.84)">{{item.userInfo.nickname?item.userInfo.nickname:'匿名用户'}}</view>
+          {{item.content}}
+          </view>
+          <view wx:if="{{index!=myPost.comment.length-1}}" class="line"></view>
+        </view>
+        
+      </view>
+</view>
+
+    </block>
+
+  </form>
+</view>

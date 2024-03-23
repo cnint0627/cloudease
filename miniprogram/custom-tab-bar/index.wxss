@@ -1,0 +1,213 @@
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120rpx;
+  background:white;
+  display: flex;
+  line-height: 1.2;
+  padding-bottom: env(safe-area-inset-bottom);
+  border-top: 1px solid #e6e6e6;
+  z-index:9999;
+}
+
+.tab-bar-item {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.tab-bar-item .image {
+  width: 48rpx;
+  height: 48rpx;
+  
+}
+.bulge {
+  background-color: #FFF;
+}
+.bulge .tab-bar-bulge{
+  position: absolute;
+  z-index: -1;
+  width: 64px;
+  height: 64px;
+  top: -24px;
+  border-radius: 50%;
+  border-top: 1px solid #e6e6e6;
+  background-color: #FFF;
+}
+.bulge .image{
+  position: absolute; 
+  width: 50px;
+  height: 50px;
+  top: -20px;
+}
+.bulge .tab-bar-view{
+  position: relative;
+  bottom: -16px;
+  margin-top: 4px;
+}
+
+.tab-bar-item .tab-bar-view {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+
+.pupContentBG {
+  width: 100vw;
+  height: calc(100vh - 120rpx -  env(safe-area-inset-bottom)) ;
+  position: fixed;
+  top: 0;
+  z-index:998;
+}
+
+.pupContent {
+  width: 100%;
+  background: #E9EDFD;
+  border-top-left-radius: 60rpx;
+  border-top-right-radius: 60rpx;
+  position: absolute;
+  bottom: calc(120rpx +  env(safe-area-inset-bottom));
+  height: 0;
+  z-index: 999;
+}
+
+/* 设置显示的背景 */
+
+.showBG {
+  display: block;
+}
+
+.hideBG {
+  display: none;
+}
+
+/* 弹出或关闭动画来动态设置颜色 */
+
+@keyframes slideBGtUp {
+  from {
+    background: transparent;
+  }
+
+  to {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes slideBGDown {
+  from {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  to {
+    background: transparent;
+  }
+}
+
+/* 显示或关闭内容时动画 */
+
+.openBG {
+  animation: slideBGtUp 0.2s ease-in both;
+  /* animation-fill-mode: both 动画将会执行 forwards 和 backwards 执行的动作。 */
+}
+
+.closeBG {
+  animation: slideBGDown 0.2s ease-in both;
+  /* animation-fill-mode: both 动画将会执行 forwards 和 backwards 执行的动作。 */
+}
+
+/* 设置显示内容 */
+
+.showContent {
+  display: block;
+}
+
+.hideContent {
+  display: none;
+}
+
+/* 弹出或关闭动画来动态设置内容高度 */
+
+@keyframes slideContentUp {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 1000rpx;
+  }
+}
+
+@keyframes slideContentDown {
+  from {
+    height: 1000rpx;
+  }
+
+  to {
+    height: 0;
+  }
+}
+
+/* 显示或关闭内容时动画 */
+
+.open {
+  animation: slideContentUp 0.2s ease-in both;
+  /* animation-fill-mode: both 动画将会执行 forwards 和 backwards 执行的动作。 */
+}
+
+.close {
+  animation: slideContentDown 0.2s ease-in both;
+  /* animation-fill-mode: both 动画将会执行 forwards 和 backwards 执行的动作。 */
+}
+
+.title{
+  color:#6269A4;
+  font-size: 36rpx;
+  margin-top: 60rpx;
+  margin-left: 60rpx;
+}
+
+.navigator{
+  margin-top:30rpx;
+  padding: 10rpx 50rpx;
+  height:110rpx;
+  border-radius: 20rpx;
+  background-color: white;
+  width: 535rpx;
+  margin-left: 60rpx;
+  line-height: 110rpx;
+  font-size:30rpx;
+}
+
+.icon{
+  margin-top:30rpx;
+  float: right;
+  height:50rpx;
+  width:50rpx;
+}
+
+.bottom{
+  color:#888BA8;
+  font-size: 24rpx;
+  margin-top: 40rpx;
+  position: absolute; 
+  left: 50%; 
+  transform: translateX(-50%);
+}
+
+.red-dot{
+  position: absolute;
+  background-color:red;
+  width:20rpx;
+  height:20rpx;
+  border-radius: 50%;
+  right:30rpx;
+  top:10rpx;
+}
+

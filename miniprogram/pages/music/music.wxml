@@ -1,0 +1,7 @@
+<!--pages/music/music.wxml-->
+<topBar></topBar>
+<view style="height: {{navHeight}}px;"></view>
+<view class="head">
+<image class="arrow" src="/images/arrow-back.png" bindtap="bindBack"/>解压音乐
+</view>
+<button type="primary" bindtap="bindStartPlay">播放音乐</button>

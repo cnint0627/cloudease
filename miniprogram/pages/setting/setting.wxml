@@ -1,0 +1,71 @@
+<!--pages/setting/setting.wxml-->
+
+<topBar></topBar>
+<view class="page">
+<view style="height: {{navHeight}}px;background-color: white;"></view>
+
+<view class="section-1">
+
+  <view class="title">
+    <view class="head">我的</view>
+    <image bindtap="bindNav" class="anoch" src="/images/anotherchoice.png" url="/pages/account/account"></image>
+  </view>
+
+  <view class="name-container">
+    <view class="img-container">
+      <image src="{{userInfo.avatar?avatar:'/images/icon.jpg'}}" class="img" bindtap="bindChangeAvatar"></image>
+    </view>
+    <view class="name">
+      <view style="height: 50rpx;"></view>
+      <view bindtap="bindChangeNickname" style="margin-top:-10rpx">昵称 {{userInfo.nickname}}</view>
+      <view style="font-size:25rpx;color:#888BA8;">UID {{openid}}</view>
+    </view>
+  </view>
+</view>
+<!-- 下半页 -->
+
+
+<!-- 背景 -->
+<view style="margin-top:40rpx">
+  <!-- 消息推送部分 -->
+  <view>
+    <image class="trycho" src="/images/trychoice.png" bindtap="bindSetTweet"></image>
+    <view class="head2">消息推送</view>
+  </view>
+  <!-- <navigator class="nav" url="/pages/account/account">
+今天 2/22
+<image class="nav-img" src="/images/pt1.jpg"></image>
+<view class="nav-content" style="margin-top:-50rpx;font-size: 20rpx;color:#3E4659;">{{tweet}}</view>
+</navigator>
+<navigator class="nav" url="/pages/msg/msg">
+  <image class="nav-img" src="/images/pt2.jpg"></image>
+昨天  2/21
+<view class="nav-content" style="margin-top:-50rpx; font-size: 20rpx; color:#3E4659;">人什么时候可以一天睡十二个小时</view>
+</navigator> -->
+  <!-- 动态渲染 -->
+  <view wx:if="{{tweetList.length==0}}">
+    <view class="nav" style="line-height: 150rpx;">
+      正在加载消息...
+    </view>
+  </view>
+  <navigator class="nav" wx:for="{{tweetList}}">
+    {{item.date}}
+    <image class="nav-img" src="/images/icon.jpg"></image>
+    <view class="nav-content" style="margin-top:-55rpx; color:#3E4659">{{item.content}}</view>
+  </navigator>
+
+
+  <!-- 最下端提示部分 -->
+  <view class="bottom">
+    <view class="divider"></view>
+    <view class="wa">危险警报</view>
+    <switch class="choice" checked color="#888BA8" checked="{{switchChecked}}" bindchange="switchChange"></switch>
+
+    <view class="wa2">当系统检测到您有如抑郁、自杀等倾向将及时给出提示</view>
+
+
+  </view>
+
+
+</view>
+</view>

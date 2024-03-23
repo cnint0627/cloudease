@@ -1,0 +1,17 @@
+/* pages/music/music.wxss */
+.head{
+  color:#888EBE;
+  height:50rpx;
+  font-size: 40rpx;
+  font-weight: 500;
+  margin-left:60rpx;
+  margin-bottom: 30rpx;
+}
+
+.arrow{
+  margin-bottom: 5rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+  width: 21rpx;
+  height: 40rpx;
+}

@@ -1,0 +1,55 @@
+<!--pages/AIChat/AIChat.wxml-->
+<topBar></topBar>
+<view wx:if="{{byPass[0]=='h'}}">
+<view style="margin-top: {{navHeight}}px;">
+  <view class="head">
+    <image class="arrow" src="/images/arrow-back.png" bindtap="bindBack" />普通模式
+  </view>
+  <view class="chat-container">
+      <view class="box">
+        <view style="float:left;margin-left: 3%;" class="avatar">
+        <image style="width: 90rpx;height:90rpx;" src="/images/btn-me.png" mode="aspectFill"></image>
+      </view>
+        <view class="AIMsg">
+          你好，我是你的心理AI助手，有什么困惑或者烦恼呢~
+          <view class="arrow-AI"></view>
+        </view>
+      </view>
+
+
+    <view wx:if="{{messages.length>0}}" wx:for="{{messages}}">
+      <view class="box">
+      <view style="float:right;margin-right: 3%;" class="avatar">
+        <image style="width: 90rpx;height:90rpx;" src="/images/btn-me.png" mode="aspectFill"></image>
+      </view>
+        <view class="userMsg">
+          {{item.userMsg}}
+          <view class="arrow-user"></view>
+        </view>
+      </view>
+      <view class="box">
+        <view style="float:left;margin-left: 3%;" class="avatar">
+        <image style="width: 90rpx;height:90rpx;" src="/images/btn-me.png" mode="aspectFill"></image>
+      </view>
+        <view class="AIMsg">
+          {{item.AIMsg}}
+          <view wx:if="{{item.AIMsg}}" class="arrow-AI"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="form">
+  <form catchsubmit="formSubmit">
+
+    <input class="textarea" name="textMsg" value="{{valueMsg}}" placeholder="说出你的烦恼吧···">
+</input>
+    <button loading="{{isSend}}" style="width: 150rpx;" class="sendbtn" form-type="submit" disabled="{{isSend}}">
+      发送
+    </button>
+
+  </form>
+</view>
+</view>
+
+<view style="margin-top: {{navHeight}}px;" wx:if="{{byPass[0]=='w'}}">该功能暂未开放哦！</view>

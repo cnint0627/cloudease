@@ -1,1 +1,24 @@
 /* pages/launch/launch.wxss */
+.bg {
+  display: flex;
+  flex-direction: column;
+  /* 父元素要设置100% */
+  width: 100%; 
+  padding: 0;
+}
+
+.bg-text{
+  line-height: 750rpx;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  color: black;
+  font-size: 50rpx;
+  font-weight: 700;
+}
+
+.bg-image {
+  /* 将图片铺满：css3计算属性 */
+  width: 100%;
+  height: calc(100vh);
+}

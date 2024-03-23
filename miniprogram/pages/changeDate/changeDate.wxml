@@ -1,0 +1,42 @@
+<!--pages/changeDate/changeDate.wxml-->
+<view class="page">
+  <topBar></topBar>
+  <view style="height: {{navHeight}}px;"></view>
+  <view class="head">
+    <image class="arrow" src="/images/arrow-back.png" bindtap="bindBack" />查看记录
+  </view>
+
+
+  <view class="date">
+    <picker-view class="picker" value="{{value}}" bindchange="bindChangeDate">
+      <picker-view-column>
+        <view wx:for="{{years}}" class="picker-item">
+          {{item}}年
+        </view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{months}}" class="picker-item">
+          {{item}}月
+        </view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+
+  <view class="circle-container">
+    <view wx:for="{{dateStartEndArray}}" wx:key="index">
+    <view class="index">
+    第{{weekArray[index+1][1]}}周
+    </view>
+      <view data-index="{{index}}" bindtap="bindSelectDate" class="circle">
+        <view class="point"></view>
+        <view data-week="{{index}}" class="circle-item" wx:for="{{weekArray}}" wx:for-index="week">
+          <view style="{{dateStartEndArray[index][week]==date.date?'color: #8991D1;font-weight:600':''}}">{{weekArray[week]}}</view>
+          <view style="{{dateStartEndArray[index][week]==date.date?'color: #8991D1;font-weight:600':''}}">{{(dateStartEndArray[index][week]%10000<1000?'0':'')+dateStartEndArray[index][week]%10000}}</view>
+          <view wx:if="{{calendarRecord[dateStartEndArray[index][week]]}}">
+            <image class="emoji" src="{{'/images/emojis/emoji-'+calendarRecord[dateStartEndArray[index][week]].mood+'.png'}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

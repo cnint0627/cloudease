@@ -1,12 +1,42 @@
 <!--pages/community/community.wxml-->
+<topBar></topBar>
+<view wx:if="{{byPass[0]=='h'}}">
+<view style="height: {{navHeight}}px;"></view>
 <view class="head">
-心灵树洞
+  社区
 </view>
-<view wx:for="{{post}}">
-<navigator class="post" wx:if="{{item!=null}}" url="/pages/post/post?index={{index}}">
-<text>{{item.title}}</text>
-<text class="sort">分类：{{sortArray[item.sort]}}</text>
-<view class="content">{{item.content}}</view>
-<view class="date">{{item.date.year}}-{{item.date.month}}-{{item.date.day}}</view>
+<view class="head2">
+  快在这里倾诉或帮助别人吧
+</view>
+
+
+
+<view class="btn-container">
+  <navigator class="btn-plane" url="/pages/throw/throw">
+  <image class="bg" src="cloud://cloud1-9g1sdvdke7c6e645.636c-cloud1-9g1sdvdke7c6e645-1322592749/communityBackgroundImages/community-1.png"></image>
+  <view class="mask"></view>
+  <view class="tag">
+  <view style="font-size: 36rpx;">投纸飞机</view>
+  <view style="font-size: 24rpx;">匿名倾诉自己的心声，找到归属感</view>
+  </view>
+</navigator>
+<navigator class="btn-plane" url="/pages/pick/pick">
+  <image class="bg" src="cloud://cloud1-9g1sdvdke7c6e645.636c-cloud1-9g1sdvdke7c6e645-1322592749/communityBackgroundImages/community-2.png"></image>
+  <view class="mask"></view>
+  <view class="tag">
+  <view style="font-size: 36rpx;">捡纸飞机</view>
+  <view style="font-size: 24rpx;">倾听他人的故事，适当表达自己观点</view>
+  </view>
+</navigator>  <navigator class="btn-plane" url="/pages/myCommunity/myCommunity">
+  <image class="bg" src="cloud://cloud1-9g1sdvdke7c6e645.636c-cloud1-9g1sdvdke7c6e645-1322592749/communityBackgroundImages/community-3.png"></image>
+  <view class="mask"></view>
+  <view class="tag">
+  <view style="font-size: 36rpx;">我的记录</view>
+  <view style="font-size: 24rpx;">回顾成长历程，寻找记忆里的模样</view>
+  </view>
+<view class="red-dot" wx:if="{{showRedDot}}"></view>
 </navigator>
 </view>
+</view>
+
+<view style="margin-top: 300rpx;line-height: 80rpx;color:blue" wx:if="{{byPass[0]=='w'}}">本产品是一款心理自助APP。设置了捡拾纸飞机，心情日记，线下学校资源，自杀危险弹窗，放松音乐和冥想指导，解压小游戏6个版块，提供了全面综合的心理自助解决方案。核心功能为帮助用户改变心理认知，走出负面情绪困扰（华中科技大学学校比赛参赛项目）</view>

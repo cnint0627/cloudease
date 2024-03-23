@@ -1,0 +1,9 @@
+<!--pages/select/select.wxml-->
+<topBar></topBar>
+<view style="height: {{navHeight}}px;"></view>
+<navigator class="navigator" url="/pages/AIChat/AIChat">
+AI认知疗法（高级）
+</navigator>
+<navigator class="navigator" url="/pages/AIChatSimple/AIChatSimple">
+AI心理答疑（普通）
+</navigator>

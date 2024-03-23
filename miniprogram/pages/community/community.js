@@ -6,10 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    post:null,
-    userPost:null,
-    sortArray:["请选择","学习","情感","家庭"]
+    navHeight:app.globalData.navHeight,
+    communityBgPath:app.globalData.communityBgPath,
+    pageHeight:app.globalData.windowHeight,
+    showRedDot:app.globalData.showRedDot,
+    byPass:app.globalData.byPass
   },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -29,23 +32,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    wx.showLoading({
-      title: '加载中',
+    this.setData({
+      showRedDot:app.globalData.showRedDot
     })
-    //初始化，获取社区post列表
-    wx.cloud.callFunction({
-      name:"initCommunity",
-      data:{
-        openid:app.globalData.openid
-      },
-      complete:res=>{
-        this.setData({
-          post:res.result.post,
-          userPost:res.result.userPost,
-          userComment:res.result.userComment
-        })
-        wx.hideLoading()
-      }
+    this.getTabBar().setData({
+      showRedDot:app.globalData.showRedDot
     })
   },
 
@@ -53,7 +44,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide() {
-
+    
   },
 
   /**

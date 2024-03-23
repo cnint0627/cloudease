@@ -9,9 +9,14 @@ exports.main = async (event, context) => {
   var user=await db.collection("userData").doc(event.openid).get()
   var post=community.data.post
   var userPost=user.data.post
+  var sortByPostTime=community.data.sortByPostTime
+  var sortByCommentTime=community.data.sortByCommentTime
   
   //将社区post列表中该帖子值置为null
   delete post[event.index]
+  sortByPostTime.splice(sortByPostTime.indexOf(parseInt(event.index)),1)
+  sortByCommentTime.splice(sortByCommentTime.indexOf(parseInt(event.index)),1)
+  
 
   //删除用户post列表中该帖子索引
   userPost.splice(userPost.indexOf(event.index),1)
@@ -19,7 +24,9 @@ exports.main = async (event, context) => {
   //更新数据库
   await db.collection("communityData").doc("community").update({
     data:{
-      post:post
+      post:post,
+      sortByPostTime:sortByPostTime,
+      sortByCommentTime:sortByCommentTime
     }
   })
 

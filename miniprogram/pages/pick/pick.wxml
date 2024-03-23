@@ -1,0 +1,58 @@
+<!--pages/community/community.wxml-->
+<view wx:if="{{byPass[0]=='h'}}" class="page">
+  <topBar></topBar>
+  <view style="height: {{navHeight}}px;"></view>
+
+  <view class="head">
+    <image class="arrow" src="/images/arrow-back.png" bindtap="bindBack" />捡纸飞机
+  </view>
+  <form catchsubmit="throwComment">
+
+    <!--显示评论-->
+    <block>
+        <view class="content">
+
+          <textarea bindtouchstart="bindSlideStart" bindtouchend="bindSlideEnd" disabled="true" class="textarea" style="{{post?'':'color:#888BA8;'}}" value="{{(!postIndex&&postIndex!=0)?'正在努力地捡纸飞机......':(postIndex!=-1?((post.title?(post.title+'\\n'):'')+post.content):'啊哦，没有捡到纸飞机~')}}"></textarea>
+          <view wx:if="{{post.date}}" class="date">{{post.date.year+(post.date.month<10?'-0':'-')+post.date.month+(post.date.day<10?'-0':'-')+post.date.day+(post.date.hour<10?' 0':' ')+post.date.hour+(post.date.minute<10?':0':':')+post.date.minute}}</view>
+          <view class="index">{{postList.length?postListIndex+1:0}}/{{postList.length}}</view>
+          <image src="/images/cat-1.png" class="tiny" mode="aspectFill"></image>
+        </view>
+        <view class="text-tip"><view bindtap="pickPrev" style="z-index:999;width:50rpx;height:60rpx;position: absolute;left:-69rpx;top:-15rpx;"/><image style="width:18rpx;height:34rpx;position: absolute;left:-50rpx;" src="/images/arrow-back.png"></image>左右滑动纸张可切换纸飞机内容<image style="width:18rpx;height:34rpx;position: absolute;right:-50rpx;transform: scaleX(-1);" src="/images/arrow-back.png"></image><view bindtap="pickNext" style="z-index:999;width:50rpx;height:60rpx;position: absolute;right:-69rpx;top:-15rpx;"/></view>
+        <view class="comment">
+          回复
+        </view>
+        <view class="comment-area-container">
+        <image mode="aspectFill" style="width: 90rpx;height:90rpx;border-radius: 50%;background-color: white;" src="{{userInfo.avatar?avatar:'/images/icon.jpg'}}"></image>
+        <view class="content-2">
+          <input value="{{valueContent}}" name="content" class="comment-area" bindinput="refreshValueContent" maxlength="300" placeholder="说点什么......" placeholder-style="color:rgba(98, 105, 164, 0.57)"></input>
+
+          <button class="btn-plane-2" style="width: 120rpx;" form-type="submit" disabled="{{isThrow||!isAvailable||postIndex==-1||(!postIndex&&postIndex!=0)}}" loading="{{isThrow}}">
+            确定
+          </button>
+        </view>
+        </view>
+
+
+
+      <view class="comment-container" wx:if="{{post}}">
+        <view class="comment-nums">
+          共 {{postList[postListIndex].post.comment.length}} 条评论
+        </view>
+        <view wx:for="{{postList[postListIndex].post.comment}}" class="other-comment-container">
+        <image style="width:80rpx;height:80rpx;border-radius:50%;background-color:white;" mode="aspectFill" src="{{item.userInfo.avatar?item.userInfo.avatar:'/images/icon.jpg'}}"></image>
+        <view class="other-comment-content">
+          <view style="color:rgba(136, 139, 168, 0.84)">{{item.userInfo.nickname?item.userInfo.nickname:'匿名用户'}}</view>
+          {{item.content}}
+          </view>
+          <view wx:if="{{index!=postList[postListIndex].post.comment.length-1}}" class="line"></view>
+        </view>
+        
+      </view>
+
+
+    </block>
+
+  </form>
+</view>
+
+<view style="margin-top: {{navHeight}}px;" wx:if="{{byPass[0]=='w'}}">该功能暂未开放哦！</view>

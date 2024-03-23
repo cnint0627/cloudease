@@ -4,45 +4,55 @@
     "pages/index/index",
     "pages/community/community",
     "pages/calendar/calendar",
-    "pages/more/more",
     "pages/uploadPost/uploadPost",
-    "pages/post/post"
+    "pages/post/post",
+    "pages/select/select",
+    "pages/AIChat/AIChat",
+    "pages/mood/mood",
+    "pages/setting/setting",
+    "pages/throw/throw",
+    "pages/pick/pick",
+    "pages/myCommunity/myCommunity",
+    "pages/myPlane/myPlane",
+    "pages/changeDate/changeDate",
+    "pages/AIChatSimple/AIChatSimple",
+    "pages/aboutUs/aboutUs",
+    "pages/music/music"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "心理自助平台",
-    "navigationBarTextStyle": "black"
+    "navigationStyle": "custom"
   },
   "tabBar": {
-    "color": "lightgrey",
-    "selectedColor": "green",
-    "backgroundColor": "white",
+    "custom": true,
+    "color": "#D3D3D3",
+    "selectedColor": " #00FF00",
+    "backgroundColor": "#FFFFFF",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页"
       },
       {
-        "pagePath": "pages/community/community",
-        "text": "树洞"
-      },
-      {
-        "pagePath": "pages/uploadPost/uploadPost",
-        "text": "+"
-      },
-      {
         "pagePath": "pages/calendar/calendar",
         "text": "日历"
       },
       {
-        "pagePath": "pages/more/more",
-        "text": "其他"
+        "pagePath": "pages/community/community",
+        "text": "社区"
+      },
+      {
+        "pagePath": "pages/setting/setting",
+        "text": "我的"
       }
     ]
   },
+  "usingComponents": {
+    "custom-tab-bar": "/custom-tab-bar/index"
+  },
   "sitemapLocation": "sitemap.json",
   "style": "v2",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "miniApp": {
+    "useAuthorizePage": true
+  }
 }

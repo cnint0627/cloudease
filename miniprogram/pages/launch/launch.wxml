@@ -1,2 +1,5 @@
 <!--pages/launch/launch.wxml-->
-<text>启动页，可添加小程序启动图</text>
+<view class="bg">
+<image class="bg-image"></image>
+<text class="bg-text">启动页，可添加小程序启动图</text>
+</view>

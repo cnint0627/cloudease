@@ -1,0 +1,21 @@
+<!--pages/community/community.wxml-->
+<topBar></topBar>
+<view style="height: {{navHeight}}px;"></view>
+
+<view class="head">
+<image class="arrow" src="/images/arrow-back.png" bindtap="bindBack"/>投纸飞机
+</view>
+<form catchsubmit="throwPlane">
+<view class="content">
+<input name="title" class="title" placeholder="标题" placeholder-style="color:gray;font-family: Arial, Helvetica, sans-serif;font-size:32rpx;color:#888BA8;"></input>
+<view class="line"> </view>
+<textarea name="content" class="textarea" placeholder="快来倾诉自己的心事吧......" placeholder-style="font-family: Arial, Helvetica, sans-serif;font-size:30rpx;color:#888BA8;" bindinput="refreshValueContent" maxlength="500"></textarea>
+<image src="/images/cat-1.png" class="tiny" mode="aspectFill"></image>
+</view>
+
+
+<button bindtap="bindRequestSubscribeMsg" class="btn-plane" style="width: 630rpx;background-color: {{!(isThrow||!isAvailable)?'#DBDDED':'#ECEEFE'}}" disabled="{{isThrow||!isAvailable}}" form-type="submit" loading="{{isThrow}}">
+投送
+</button>
+
+</form>

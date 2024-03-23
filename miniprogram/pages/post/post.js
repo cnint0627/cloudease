@@ -12,7 +12,11 @@ Page({
     isDelete:false,  //是否点击删除按钮
     isComment:false, //是否点击发表评论按钮
     isCommentOwner:[], //该评论所有人是否是自己
-    valueContent:''
+    valueContent:'',
+    navHeight:app.globalData.navHeight,
+    topBarData:{
+      canBack:true
+    }
 
   },
 
@@ -124,7 +128,11 @@ Page({
     var isCommentOwner=[]
     //判断评论是否是自己的，若是自己的则显示删除按钮
     for(let i=0;i<prevPage.data.post[options.index].comment.length;i++){
+      try{
       isCommentOwner.push(prevPage.data.userComment[options.index].indexOf(i)!=-1)
+      }catch{
+        isCommentOwner.push(false)
+      }
     }
     this.setData({
       index:options.index,

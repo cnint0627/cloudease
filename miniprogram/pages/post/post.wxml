@@ -1,4 +1,6 @@
 <!--pages/post/post.wxml-->
+<topBar topBar-data="{{topBarData}}"></topBar>
+<view style="height: {{navHeight}}px;"></view>
 <view>
 <view>
 标题：{{post.title}}
@@ -23,7 +25,10 @@
 
 <view wx:for="{{post.comment}}">
 <view wx:if="{{item!=null}}">
-评论：{{item.content}}
+评论{{item.date.year}}-{{item.date.month}}-{{item.date.day}} {{item.date.hour}}:{{item.date.minute}}
+<view>
+{{item.content}}
+</view>
 </view>
 <view wx:if="{{isCommentOwner[index]}}">
 <button class="deletebtn" size="mini" bindtap="bindDeleteComment" data-index="{{index}}">

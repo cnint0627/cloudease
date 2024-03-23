@@ -1,0 +1,28 @@
+.custom_head {
+  width: 750rpx;
+  background: transparent;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+.head_store {
+  font-size: 30rpx;
+  font-weight: bold;
+  width: 340rpx;
+  margin-right: 30rpx;
+  margin-left: 22rpx;
+  flex-shrink: 0;
+}
+
+
+.picker {
+  font-size: 28rpx;
+}
+
+.picker image {
+  width: 18rpx;
+  height: 10rpx;
+  margin-left: 8rpx;
+}

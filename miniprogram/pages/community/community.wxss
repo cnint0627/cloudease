@@ -1,36 +1,142 @@
 /* pages/community/community.wxss */
-.head{
-  background-color: lightgreen;
-  margin:20rpx;
-  font-size: 60rpx;
-  font-weight: 700;
-  text-align: center;
-  color: green;
-  border-radius: 15rpx;
+.bg-img{
+  height:700rpx;
+  position: absolute;
+  width: 496rpx;
+  z-index: 2;
+  bottom:calc(350rpx + env(safe-area-inset-bottom));
+  right:20rpx;
+  border-color: white;
+  border-width:15rpx;
+  border-style:ridge;
+  transform: rotateZ(-10deg);
 }
 
-.post{
+
+.img{
+  height: 100%;
+  width: 100%;
+}
+.red-dot{
+  position: absolute;
+  background-color:red;
+  width:30rpx;
+  height:30rpx;
+  border-radius: 50%;
+  right:-10rpx;
+  top:-10rpx;
+  z-index: 999;
+}
+
+.head{
+  font-size: 50rpx;
+  font-weight: 520;
+  margin-left:50rpx;
+  color:#6A654B;
+  z-index:99;
+}
+.head2{
+  font-size: 27rpx;
+  font-weight: 490;
+  margin-left:50rpx;
+ margin-top:20rpx;
+ color:#968E69;
+ z-index: 99;
+
+}
+
+.preview{
+  margin-bottom:55rpx;
+  margin-left:50rpx;
+  background-color: white;
+  color:#B7AF83;
+  font-size: 27rpx;
+  font-weight: 520;
+  border-radius: 20rpx;
+  line-height:80rpx;
+  width:208rpx;
+  height:80rpx;
+  padding-left:62rpx;
+  left:50rpx;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+}
+.icon{
+width:40rpx;
+height:40rpx;
+float:right;
+margin-top:20rpx;
+margin-right:40rpx;
+}
+.btn-container{
   display: flex;
   flex-direction: column;
-  margin-left:20rpx;
-  margin-right:20rpx;
-  margin-top:5rpx;
-  margin-bottom:5rpx;
-  line-height: 50rpx;
-  border-radius: 15rpx;
-  background-color: lightskyblue;
-  font-size: 35rpx;
-  font-weight: 350;
-  color:darkblue;
+  margin-top:80rpx;
+  z-index: 99;
 }
 
-.sort{
-  position: absolute;
-  right:50rpx;
-}
-
-.date{
+.btn-plane{
+  width:650rpx;
+  height:18vh;
   position: relative;
-  left:500rpx;
-  color:lightyellow;
+  text-align: center;
+  line-height: 80rpx;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 30rpx;
+  margin-bottom:30rpx;
+  margin-left:50rpx;
+  border-radius: 30rpx;
+  margin-right: -25rpx;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+
 }
+.btn-me{
+  width:150rpx;
+  margin-top:30rpx;
+  margin-left: 50rpx;
+}
+
+.img-me{
+  width:150rpx;
+  height:150rpx;
+
+}
+
+.bg{
+  width: 100%;
+  height:100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index:1;
+}
+
+.mask{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index:99;
+  left:0;
+  top:0;
+  border-radius: 20rpx;
+  background: linear-gradient(to bottom,rgba(255, 255, 255, 0),rgba(131, 128, 166, 1));
+}
+
+.tag{
+  color:white;
+  margin-left: 30rpx;
+  text-align: left;
+  bottom:20rpx;
+  line-height:45rpx;
+  z-index:99;
+  position: absolute;
+}
+
+/* .me{
+  margin-top:10rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+
+} */

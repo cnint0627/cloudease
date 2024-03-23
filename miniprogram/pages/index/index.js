@@ -1,5 +1,4 @@
 // pages/index/index.js
-import { timestampToTime } from '../../utils/common/time.js'
 const app=getApp()
 Page({
 
@@ -7,34 +6,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-      isInit:false,
-      backgroundImage:null, //背景图
-      sentence:null,        //正能量语句
-      year:null,             //当前日期
-      month:null,
-      day:null,
+      isInit:app.globalData.openid?true:false,
+      bgPath:app.globalData.indexBgPath,
+      sentence:app.globalData.sentence,          //正能量语句
+      date:app.globalData.date,//当前日期
+      navHeight:app.globalData.navHeight,
+      weather:app.globalData.weather
+  },
+
+  bindRequestSubscribe(){
+    wx.requestSubscribeMessage({
+      tmplIds: ['ZpBj0Snd4p7-PU2YblbLLLxKOwymBsS8FKLKGCjk-WA'],
+      complete:res=>{
+        console.log(res)
+      }
+    })
+  },
+
+  bindSend(){
+    wx.cloud.callFunction({
+      name:'sendSubscribeMsg',
+      data:{
+        openid:app.globalData.openid
+      },
+      complete:res=>{
+        console.log(res)
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    wx.showLoading({
-      title: '加载中',
-    })
-    wx.cloud.callFunction({
-      name:"initIndex",
-      complete:res=>{
-        var date=timestampToTime(res.result.date)
-        this.setData({
-          year:date.year,
-          month:date.month,
-          day:date.day,
-          isInit:app.globalData.openid?true:false
-        })
-        wx.hideLoading()
-      }
-    })
+
   },
 
   /**
@@ -48,7 +53,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.getTabBar().setData({
+      showRedDot:app.globalData.showRedDot
+    })
   },
 
   /**

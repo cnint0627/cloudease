@@ -1,0 +1,8 @@
+<view class="custom_head" style="height:{{navHeight}}px;">
+  <view class="flex-row j_b" style="height:{{navObj}}px;padding-top:{{navTop}}px;padding-right:{{navObjWid+5}}px;">
+<button wx:if="{{topBarData.canBack}}" size="mini" bindtap="bindBack">
+返回
+</button>
+
+  </view>
+</view>

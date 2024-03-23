@@ -1,9 +1,30 @@
 <!--pages/index/index.wxml-->
-<view>
-<view>
-首页 初始化{{isInit?"成功":"失败(重新启动小程序)"}}
+<!-- 引入自定义导航栏组件 -->
+<topBar></topBar>
+<view class="bg-img">
+<image class="img" src="{{bgPath}}"/>
+<view class="day">
+{{date.day<10?'0'+date.day:date.day}}
 </view>
-年：{{year}}
-月：{{month}}
-日：{{day}}
 </view>
+
+<view class="top-text">
+<view>欢迎来到云舒 </view>
+<view>祝你拥有美好的一天</view>
+</view>
+
+<view class="weather">
+  {{weather.temperature}}℃ {{weather.weather}}
+</view>
+
+<view class="text">
+<view class="date">
+{{date.year}}年{{date.month}}月{{date.day}}日
+</view>
+<scroll-view class="sentence">{{sentence.sentence}}
+<view class="author">
+{{sentence.author?('——'+sentence.author):''}}
+</view>
+</scroll-view>
+</view>
+

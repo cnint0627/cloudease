@@ -1,0 +1,56 @@
+<!--pages/mood/mood.wxml-->
+<topBar></topBar>
+<view style="height: {{navHeight}}px;"></view>
+<view class="head">
+<image class="arrow" src="/images/arrow-back.png" bindtap="bindBack"/>今日记录
+</view>
+
+<view wx:if="{{!showDiary}}">
+
+<image class="img" bindtap="bindWriteDiary" src="/images/cat-1.png"></image>
+
+<view class="text">
+<view>哇！今天为什么如此愉悦呀？</view>
+<view>快点击小猫记录下来吧！</view>
+</view>
+</view>
+
+<view wx:if="{{showDiary}}">
+<view class="content">
+  <button class="btn-choose-image" style="width: 300rpx;" ontap="chooseImage">
+上传图片
+</button>
+<image src="/images/cat-1.png" class="tiny" mode="aspectFill"></image>
+<textarea value="{{valueContent}}" class="textarea" placeholder="快来记录今天发生的事情吧......" placeholder-style="color:#888BA8;font-family: Arial, Helvetica, sans-serif;font-size:30rpx" bindinput="refreshValueContent" maxlength="500"></textarea>
+</view>
+
+<button class="btn-plane" style="width: 300rpx;left:60rpx;">
+选择主题色
+</button>
+<button type="primary" class="btn-plane" style="width: 300rpx;left:390rpx;" ontap="saveDiary">
+保存日记
+</button>
+</view>
+
+<!-- <view>
+心情：{{currentCalendarRecord.mood}}
+</view>
+<view wx:if="{{currentCalendarRecord.diary}}">
+心情日记：
+{{currentCalendarRecord.diary}}
+<view wx:if="{{currentDate.date==date.date}}">
+<button type="primary" size="mini" bindtap="bindModifyDiary">
+修改
+</button>
+</view>
+</view>
+<view wx:if="{{!currentCalendarRecord.diary}}">
+发表今天的心情日记吧~（仅自己可见哦）
+<form catchsubmit="formSubmit">
+<textarea name="textDiary" value="{{valueDiary}}" placeholder="{{'今天我的心情是：'+currentCalendarRecord.mood+'...'}}">
+</textarea>
+<button form-type="submit" type="primary">
+发表日记
+</button>
+</form>
+</view> -->

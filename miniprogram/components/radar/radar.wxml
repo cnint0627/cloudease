@@ -1,0 +1,4 @@
+<!--components/radar/radar.wxml-->
+<view class="container">
+  <ec-canvas class="ec-canvas" id="mychart-dom-radar" isUseNewCanvas="{{ true }}" canvas-id="mychart-radar" ec="{{ ec }}"></ec-canvas>
+</view>

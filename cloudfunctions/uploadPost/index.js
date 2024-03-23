@@ -11,12 +11,17 @@ exports.main = async (event, context) => {
   var user=await db.collection("userData").doc(event.openid).get()
   var post=community.data.post
   var userPost=user.data.post
+  var postIndex=community.data.postIndex
 
   //用户记录中post列表添加该帖子索引
   userPost.push(post.length)
 
+  //已有帖子索引列表添加该帖子索引
+  postIndex.push(post.length)
+
+
   //获取服务器当前时间
-  var date=new Date(Date.now())
+  var date=new Date()
   var year=date.getFullYear()
   var month=date.getMonth()+1
   var day=date.getDate()
@@ -33,17 +38,19 @@ exports.main = async (event, context) => {
   //社区记录中post列表添加该帖子详细信息
   post.push({
     date:date,
-    sort:event.sort,
     title:event.title,
     content:event.content,
-    like:0,
-    comment:[]
+    comment:[],
+    openid:event.openid
   })
+
+  
 
   //更新数据库内容到服务端
   await db.collection("communityData").doc("community").update({
     data:{
-      post:post
+      post:post,
+      postIndex:postIndex
     }
   })
 

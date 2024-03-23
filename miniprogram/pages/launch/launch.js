@@ -13,20 +13,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    app.checkLoginReadyCallback=res=>{
+      console.log("初始化成功！")
+      setTimeout(()=>{
+        if(wx.getAccountInfoSync().miniProgram.envVersion!="release"){
+          // 绕过审核，关闭AI功能
+          app.globalData.byPass="whu"
+        }
+        wx.switchTab({
+          url: '/pages/index/index?bgPath=1'
+        })
+      },100)
+    }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-    app.checkLoginReadyCallback=res=>{
-      setTimeout(()=>{
-        wx.switchTab({
-          url: '/pages/index/index',
-        })
-      },3000)
-    }
+
   },
 
   /**

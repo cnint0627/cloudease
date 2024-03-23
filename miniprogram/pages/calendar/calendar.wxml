@@ -1,2 +1,111 @@
 <!--pages/calendar/calendar.wxml-->
-<text>pages/calendar/calendar.wxml</text>
+<view class="page">
+  <topBar></topBar>
+  <view style="height: {{navHeight}}px;"></view>
+
+  <!-- 自定义模态框 表情选择 -->
+  <view class="mask" bindtap='fadeOutDlg' animation="{{animationBgData}}" catchtouchmove="preventTouchMove" wx:if="{{showMoodModal}}"></view>
+  <view class="modalDlg" animation="{{animationData}}" wx:if="{{showMoodModal}}">
+    <view class="title">今天心情如何？</view>
+    <view class="emoji-container">
+      <view wx:for="{{emojiArray}}">
+
+        <image class="emoji" data-index="{{index}}" bindtap="uploadMood" src="{{'/images/emojis/emoji-'+index+'.png'}}"></image>
+        <view class="detail">{{emojiDetail[index]}}</view>
+      </view>
+    </view>
+
+  </view>
+
+  <!-- 自定义模态框 心情报告说明 -->
+  <view class="mask" bindtap='fadeOutDlg' animation="{{animationBgData}}" catchtouchmove="preventTouchMove" wx:if="{{showReportInfoModal}}"></view>
+  <view class="modalDlg" style="height:750rpx;top:48%;" animation="{{animationData}}" wx:if="{{showReportInfoModal}}">
+    <view class="title">心情报告说明
+      <view class="content-1">各表情对应属性如下所示：</view>
+      <view class="content">
+      <view class="row">
+      <image class="emoji" src="/images/emojis/emoji-0.png"></image>
+      <view class="row-text">
+      <view>幸福 +20</view>
+      </view>
+      </view>
+      <view class="row">
+      <image class="emoji" src="/images/emojis/emoji-1.png"></image>
+      <view class="row-text">
+        <view>愤怒 +15</view>
+        <view>厌恶 +5</view>
+      </view>
+      </view>
+      <view class="row">
+      <image class="emoji" src="/images/emojis/emoji-2.png"></image>
+      <view class="row-text">
+      <view>惊讶 +10</view>
+      <view>恐惧 +10</view>
+      </view>
+      </view>
+      <view class="row">
+      <image class="emoji" src="/images/emojis/emoji-3.png"></image>
+      <view class="row-text">
+      <view>恐惧 +5</view>
+      <view>惊讶 +6</view>
+      <view>幸福 +9</view>
+      </view>
+      </view>
+      <view class="row">
+      <image class="emoji" src="/images/emojis/emoji-4.png"></image>
+      <view class="row-text">
+      <view>悲伤 +10</view>
+      <view>厌恶 +5</view>
+      <view>愤怒 +5</view>
+      </view>
+      </view>
+      <view class="row">
+      <image class="emoji" src="/images/emojis/emoji-5.png"></image>
+      <view class="row-text">
+      <view>全部 +1</view>
+      </view>
+      </view>
+      <view class="row">
+      <image class="emoji" src="/images/emojis/emoji-6.png"></image>
+      <view class="row-text">
+      <view>悲伤 +20</view>
+      </view>
+      </view>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="head">
+    心情日历
+  </view>
+  <view class="change-time">
+    <text style="margin-right: 20rpx;">调整时间：</text>
+    <text>从</text>
+    <button bindtap="bindChangeDate" style="width:180rpx;" class="change-time-btn">{{dateStartEnd[0]}}</button>
+    <text>到</text>
+    <button bindtap="bindChangeDate" style="width:180rpx;" class="change-time-btn">{{dateStartEnd[6]}}</button>
+
+  </view>
+
+  <view class="circle">
+    <view class="point"></view>
+    <view data-week="{{index}}" bindtap="bindRecordMood" class="circle-item" wx:for="{{weekArray}}">
+      <view style="{{dateStartEnd[index]==date.date?'color: #8991D1;font-weight:600':''}}">{{item}}</view>
+      <view style="{{dateStartEnd[index]==date.date?'color: #8991D1;font-weight:600':''}}">
+        {{(dateStartEnd[index]%10000<1000?'0':'')+dateStartEnd[index]%10000}}
+      </view>
+      <view wx:if="{{calendarRecord[dateStartEnd[index]]}}">
+        <image class="emoji-circle" src="{{'/images/emojis/emoji-'+calendarRecord[dateStartEnd[index]].mood+'.png'}}"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="change-time" style="margin-top: 120rpx;">心情报告<view bindtap="bindShowReportInfo" class="ques">?</view></view>
+  <view class="report-container">
+    <view class="radar">
+      <my-radar data="{{radarData}}"></my-radar>
+    </view>
+  </view>
+  <view style="height: 50rpx;"></view>
+</view>

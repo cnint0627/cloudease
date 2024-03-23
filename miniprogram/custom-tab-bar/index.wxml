@@ -1,0 +1,48 @@
+<!--custom-tab-bar/index.wxml-->
+<view class="tab-bar">
+  <view wx:for="{{list}}" wx:key="index" class="tab-bar-item {{item.bulge?'bulge':''}}" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
+    <view wx:if="item.bulge" class="tab-bar-bulge"></view>
+    <image class="image" src="{{selected == index ? item.selectedIconPath : item.iconPath}}"></image>
+    <!-- <view  wx:if="{{item.text}}" style="color: {{selected === index ? selectedColor : color}}" class="tab-bar-view">{{item.text}}</view> -->
+    <view class="tab-bar-view" style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</view>
+    <view wx:if="{{index==3 && showRedDot}}" class="red-dot"></view>
+  </view>
+</view>
+
+
+<!-- 底部弹窗 -->
+
+<!-- 底部弹窗动画的内容 -->
+<view class='pupContent {{click? "showContent": "hideContent"}} {{option? "open": "close"}}' hover-stop-propagation='true'>
+  <view class='title'>功能</view>
+  <view wx:if="{{layer==0}}">
+  <view wx:if="{{byPass[0]=='h'}}" class="navigator" style="margin-top: 50rpx;" bindtap="bindSelectChatMode">
+    聊天对话
+    <image class="icon" src="/images/icon-chat.png"></image>
+  </view>
+  <navigator class="navigator" url="/pages/music/music">
+    娱乐功能
+    <image class="icon" src="/images/icon-entertain.png"></image>
+  </navigator>
+  <navigator class="navigator">
+    学校资源
+    <image class="icon" src="/images/icon-resource.png"></image>
+  </navigator>
+  <view class="bottom">
+  更多功能正在加载中...
+  </view>
+  </view>
+  <view wx:if="{{layer==1}}">
+    <navigator class="navigator" style="margin-top: 50rpx;" url="/pages/AIChat/AIChat">
+    认知疗法
+    <image class="icon" src="/images/icon-chat.png"></image>
+  </navigator>
+  <navigator class="navigator" url="/pages/AIChatSimple/AIChatSimple">
+    普通模式
+    <image class="icon" src="/images/icon-chat.png"></image>
+  </navigator>
+  </view>
+</view>
+<!-- 固定的背景 -->
+<view class='pupContentBG {{click?"showBG":"hideBG"}} {{option?"openBG":"closeBG"}}' catchtap='showPopup'>
+</view>

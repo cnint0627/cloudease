@@ -1,0 +1,10 @@
+<!--pages/aboutUs/aboutUs.wxml-->
+<topBar topBar-data="{{topBarData}}"></topBar>
+<view class="page" style="margin-top: {{navHeight}}px;">
+<view>
+联系开发者：
+</view>
+<view>
+mail：cnint627@hust.edu.cn
+</view>
+</view>
